@@ -1,7 +1,7 @@
 # MjölnIR
 
 **MjÖlnIR** is a user-friendly tool for visualizing and analyzing two-dimensional datasets without the need to write repetitive Python or MATLAB code. It’s designed to simplify your workflow by letting you inspect, process, and export results quickly while keeping your work organized as one project. The goal is to reduce complexity so your data isn’t just seen, but clearly understood. Why this name? It is just unique and ends it ends IR :) Many other names I considered were already in use. 
-To download the program, as .exe file, visit [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15874435.svg)](https://doi.org/10.5281/zenodo.15874435)
+To download the program, as .exe file, visit [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15874435.svg)](https://doi.org/10.5281/zenodo.15874435) [![Discord](https://img.shields.io/badge/Discord-Join%20Chat-5865F2?logo=discord&logoColor=white)](https://discord.gg/CPM2vY8x) [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/matheshvaithiyanathan)
 
 ---
 
