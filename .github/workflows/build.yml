@@ -9,10 +9,14 @@ on:
 jobs:
   build-windows:
     runs-on: windows-latest
+    permissions:
+      contents: write  # Required to create releases
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -27,12 +31,19 @@ jobs:
 
     - name: Run PyInstaller
       run: |
-        pyinstaller --onefile --distpath dist MjölnIR.py
+        # Note: PyInstaller uses the script name for the .exe by default.
+        # If your script is MjölnIR.py, the output is MjölnIR.exe.
+        # We use --name to ensure it matches the name you want.
+        pyinstaller --onefile --name "Joel" --distpath dist MjölnIR.py
 
     - name: Create a Release
       uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
       with:
+        # We generate a tag name automatically since one doesn't exist on branch push
+        tag_name: v${{ github.run_number }}
+        name: Release v${{ github.run_number }}
         files: dist/Joel.exe
+        draft: false
+        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
