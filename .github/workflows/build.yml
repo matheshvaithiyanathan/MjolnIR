@@ -27,7 +27,7 @@ jobs:
 
     - name: Run PyInstaller
       run: |
-        pyinstaller --onefile --distpath dist MjÖlnIR.py
+        pyinstaller --onefile --distpath dist MjölnIR.py
 
     - name: Create a Release
       uses: softprops/action-gh-release@v1
