@@ -34,7 +34,7 @@ jobs:
         # Note: PyInstaller uses the script name for the .exe by default.
         # If your script is MjölnIR.py, the output is MjölnIR.exe.
         # We use --name to ensure it matches the name you want.
-        pyinstaller --onefile --name "Joel" --distpath dist MjölnIR.py
+        pyinstaller --onefile --name "MjölnIR" --distpath dist MjölnIR.py
 
     - name: Create a Release
       uses: softprops/action-gh-release@v1
@@ -42,7 +42,7 @@ jobs:
         # We generate a tag name automatically since one doesn't exist on branch push
         tag_name: v${{ github.run_number }}
         name: Release v${{ github.run_number }}
-        files: dist/Joel.exe
+        files: dist/MjölnIR.exe
         draft: false
         prerelease: false
       env:
