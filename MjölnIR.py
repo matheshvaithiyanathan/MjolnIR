@@ -1531,9 +1531,9 @@ class SignalPlotterApp(QMainWindow):
         self._update_window_title( )
 
         self.setGeometry(100, 100, 2500, 1500)
-        self.base_font_size = 14
-        self.axis_label_font_size = 14
-        self.axis_scale_font_size = 14
+        self.base_font_size = 12
+        self.axis_label_font_size = 12
+        self.axis_scale_font_size = 12
         self.central_widget = QWidget( )
 
         self.setCentralWidget(self.central_widget)
@@ -1937,7 +1937,7 @@ class SignalPlotterApp(QMainWindow):
                                          **{ 'font-size': f'{self.axis_label_font_size}pt' })
         self.signal_plot_widget.setLabel('left', self.axis_labels [ 'signal_left' ],
                                          **{ 'font-size': f'{self.axis_label_font_size}pt' })
-        self.signal_plot_widget.setAspectLocked(True)
+        # self.signal_plot_widget.setAspectLocked(True)
         self.signal_plot_widget.setBackground('w')
         self.signal_plot_widget.getViewBox( ).enableAutoRange(axis = pg.ViewBox.XYAxes, enable = False)
         self.signal_plot_widget.getViewBox( ).setMouseMode(pg.ViewBox.RectMode)
