@@ -1232,7 +1232,7 @@ class PlotWindow(QWidget):
         self.contour_plot_widget.setBackground('w')
         self.diagonal_plot_widget.setBackground('w')
 
-        self.contour_plot_widget.setAspectLocked(True)
+        self.contour_plot_widget.setAspectLocked(False)
 
         self.contour_plot_widget.getViewBox( ).setMouseMode(pg.ViewBox.RectMode)
 
