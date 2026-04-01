@@ -1,25 +1,22 @@
-name: Build and Release Executable
+name: Build MjölnIR Installer
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
-  build-windows:
+  build:
     runs-on: windows-latest
-    permissions:
-      contents: write  # Required to create releases
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -29,21 +26,17 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
 
-    - name: Run PyInstaller
+    - name: Build with PyInstaller
       run: |
-        # Note: PyInstaller uses the script name for the .exe by default.
-        # If your script is MjölnIR.py, the output is MjölnIR.exe.
-        # We use --name to ensure it matches the name you want.
-        pyinstaller --onefile --name "MjölnIR" --distpath dist MjölnIR.py
+        pyinstaller mjolnir.spec --noconfirm
 
-    - name: Create a Release
-      uses: softprops/action-gh-release@v1
+    - name: Compile Installer (Inno Setup)
+      uses: GabrielBB/xvfb-action@v1 # Helper to run GUI-based tools if needed, but ISCC usually works fine
       with:
-        # We generate a tag name automatically since one doesn't exist on branch push
-        tag_name: v${{ github.run_number }}
-        name: Release v${{ github.run_number }}
-        files: dist/MjölnIR.exe
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: iscc mjolnir_installer.iss
+      
+    - name: Upload Installer Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Mjolnir-Installer
+        path: Output/*.exe
