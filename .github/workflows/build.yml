@@ -1,4 +1,4 @@
-name: Build MjölnIR Installer
+name: Build Kaalen2D Installer
 
 on:
   push:
@@ -26,13 +26,13 @@ jobs:
 
     - name: Build with PyInstaller
       run: |
-        pyinstaller mjolnir.spec --noconfirm
+        pyinstaller Kaalen2D.spec --noconfirm
 
     - name: Compile Installer (Inno Setup)
-      run: iscc mjolnir_installer.iss
+      run: iscc Kaalen2D_installer.iss
       
     - name: Upload Installer Artifact
       uses: actions/upload-artifact@v6
       with:
-        name: Mjolnir-Installer
+        name: Kaalen2D-Installer
         path: Output/*.exe
