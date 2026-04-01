@@ -3,9 +3,7 @@ name: Build MjölnIR Installer
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
   build:
@@ -31,9 +29,7 @@ jobs:
         pyinstaller mjolnir.spec --noconfirm
 
     - name: Compile Installer (Inno Setup)
-      uses: GabrielBB/xvfb-action@v1 # Helper to run GUI-based tools if needed, but ISCC usually works fine
-      with:
-        run: iscc mjolnir_installer.iss
+      run: iscc mjolnir_installer.iss
       
     - name: Upload Installer Artifact
       uses: actions/upload-artifact@v4
