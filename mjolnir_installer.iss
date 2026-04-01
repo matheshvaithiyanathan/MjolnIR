@@ -28,7 +28,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "dist\MjölnIR*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}{#MyAppExeName}"
+Name: "{autoprograms}{#MyAppName}"; Filename: "{app}{#MyAppExeName}"
 Name: "{autodesktop}{#MyAppName}"; Filename: "{app}{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
