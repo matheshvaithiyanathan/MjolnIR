@@ -1,7 +1,7 @@
-#define MyAppName "MjölnIR"
+#define MyAppName "Kaalen2D"
 #define MyAppVersion "1.0"
 #define MyAppPublisher "Mathesh Vaithiyanathan"
-#define MyAppExeName "MjölnIR.exe"
+#define MyAppExeName "Kaalen2D.exe"
 
 [Setup]
 AppId={{A1B2C3D4-E5F6-4321-8765-0987654321AB}
@@ -11,7 +11,7 @@ AppPublisher={#MyAppPublisher}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
-OutputBaseFilename=Mjolnir_Setup_v1.0
+OutputBaseFilename=Kaalen2D_Setup_v1.0
 OutputDir=Output
 Compression=lzma
 SolidCompression=yes
@@ -24,8 +24,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-; PyInstaller creates the app in dist\MjölnIR because of the 'name' in COLLECT
-Source: "dist\MjölnIR*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+; PyInstaller creates the app in dist\Kaalen2D because of the 'name' in COLLECT
+Source: "dist\Kaalen2D*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
