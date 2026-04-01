@@ -3,20 +3,19 @@ import sys
 import os
 from PyInstaller.utils.hooks import collect_data_files
 
+# This must match your filename in GitHub exactly
+target_script = 'MjölnIR.py'
+
 block_cipher = None
 
-# Ensure the script finds your icon if you have one
+# Collect data files for matplotlib
+added_files = collect_data_files('matplotlib')
+
+# Check for icon
 icon_path = 'icon.ico' if os.path.exists('icon.ico') else None
 
-added_files = [
-    # Add any non-python data files here (e.g., ('images/*.png', 'images'))
-]
-
-# Matplotlib and Scipy sometimes require explicit data collection
-added_files += collect_data_files('matplotlib')
-
 a = Analysis(
-    ['sample_code.py'],
+    [target_script],
     pathex=[],
     binaries=[],
     datas=added_files,
@@ -25,6 +24,12 @@ a = Analysis(
         'scipy.linalg.cython_blas',
         'scipy.linalg.cython_lapack',
         'pandas._libs.tslibs.base',
+        'pandas._libs.tslibs.defs',
+        'pandas._libs.tslibs.nanops',
+        'pandas._libs.tslibs.hashtable',
+        'PyQt5.QtCore',
+        'PyQt5.QtGui',
+        'PyQt5.QtWidgets',
     ],
     hookspath=[],
     hooksconfig={},
@@ -36,7 +41,7 @@ a = Analysis(
     noarchive=False,
 )
 
-pyz = PYZ(a.brain, a.zipped_data, cipher=block_cipher)
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
 exe = EXE(
     pyz,
@@ -48,7 +53,7 @@ exe = EXE(
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    console=False, # Set to False to hide the terminal window
+    console=False, 
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
