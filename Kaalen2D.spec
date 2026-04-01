@@ -4,7 +4,7 @@ import os
 from PyInstaller.utils.hooks import collect_data_files
 
 # This must match your filename in GitHub exactly
-target_script = 'MjölnIR.py'
+target_script = 'Kaalen2D.py'
 
 block_cipher = None
 
@@ -48,7 +48,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='MjölnIR',
+    name='Kaalen2D',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -70,5 +70,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='MjölnIR',
+    name='Kaalen2D',
 )
