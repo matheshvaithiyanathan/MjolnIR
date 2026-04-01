@@ -1525,7 +1525,7 @@ class SignalPlotterApp(QMainWindow):
 
     def __init__(self):
         super( ).__init__( )
-        self.base_title = "MjölnIR"
+        self.base_title = "Kaalen2D"
         self._current_project_file = None
         self._data_modified = False
         self._update_window_title( )
@@ -3989,7 +3989,7 @@ class SignalPlotterApp(QMainWindow):
 if __name__ == '__main__':
     if sys.platform == 'win32':
         try:
-            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('dataviewer2D.MjölnIR_app.1.0')
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('dataviewer2D.Kaalen2D_app.1.0')
         except AttributeError:
             pass
     app = QApplication(sys.argv)
