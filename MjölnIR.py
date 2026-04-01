@@ -35,7 +35,7 @@ from PyQt5.QtWidgets import (
     QComboBox,
     QTabWidget
 )
-import resources_rc
+#import resources_rc
 import scipy
 from PyQt5.QtGui import QFont, QColor, QDoubleValidator, QIntValidator, QIcon
 from scipy.interpolate import RectBivariateSpline, UnivariateSpline, interp1d # Added interp1d
@@ -3994,7 +3994,6 @@ if __name__ == '__main__':
             pass
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon(':/icons/icon.ico'))
-
     window = SignalPlotterApp( )
     window.show( )
     if len(sys.argv) > 1:
