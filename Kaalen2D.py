@@ -3989,7 +3989,7 @@ class SignalPlotterApp(QMainWindow):
 if __name__ == '__main__':
     if sys.platform == 'win32':
         try:
-            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('dataviewer2D.Kaalen2D_app.1.0')
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('dataviewer2D.Kaalen2D_app.1.1')
         except AttributeError:
             pass
     app = QApplication(sys.argv)
